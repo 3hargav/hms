@@ -30,7 +30,7 @@ The server will start running on `http://localhost:5000/`.
   
 ### API Endpoints  
 Please have a look at the **curls.md** file for more detailed cURL and their respective responses.
-If you want to run them in Postman, please download the below collections and export in your local machine.
+If you want to run them in Postman, please download the **hms-assignment.postman_collection.json** file in the current repository and export in your local machine's Postman client.
   
 ### Doctors  
   
