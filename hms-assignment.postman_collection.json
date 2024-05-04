@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "f4360c76-6cfd-472e-bd35-a4e860b76da5",
+		"name": "hms-assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12714590"
+	},
+	"item": [
+		{
+			"name": "create_appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doctor_id\": 1,\n    \"start_time\": \"2024-04-02 09:00:00\",\n    \"end_time\": \"2024-04-02 02:00:00\",\n    \"patient_id\": 1\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_patient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Chaitanya\",\n    \"age\": 25,\n    \"gender\": \"male\",\n    \"contact_info\": \"+918309676523\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/patients",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_medical_history",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"previous_diagnoses\": \"diabetes\",\n    \"allergies\": \"nut\",\n    \"medications\":\"aspirin\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/patients/medical_history",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"patients",
+						"medical_history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient_pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/patients/pagination",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"patients",
+						"pagination"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_doctor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Sumanth\",\n    \"specialization\": \"cardiology\",\n    \"contact_info\": \"83096765232\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doctors",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doctors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_doctor_availability",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"day_of_week\": \"monday\",\n    \"start_time\": \"09:00\",\n    \"end_time\": \"12:00\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doctors/6/availability",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doctors",
+						"6",
+						"availability"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_department",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Anatomy\",\n    \"services_offered\": \"Bone Replacement, knee surgery\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/departments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"departments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign department to doctor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"department_id\": 2,\n    \"specialization\": \"cardiology\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doctors/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doctors",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doctor_id\": 6,\n    \"patient_id\": 1,\n    \"start_time\": \"2024-05-06 10:00:00\",\n    \"end_time\": \"2024-05-06 11:00:00\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get doctor appointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doctors/6/appointments?start_time=2024-05-06 10:00:00&end_time=2024-05-06 11:00:00",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doctors",
+						"6",
+						"appointments"
+					],
+					"query": [
+						{
+							"key": "start_time",
+							"value": "2024-05-06 10:00:00"
+						},
+						{
+							"key": "end_time",
+							"value": "2024-05-06 11:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get patient appointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/patients/1/appointments",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"patients",
+						"1",
+						"appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_doctor_availability",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doctors/6/availability",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doctors",
+						"6",
+						"availability"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
